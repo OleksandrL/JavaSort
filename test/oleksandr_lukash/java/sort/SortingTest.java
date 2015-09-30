@@ -18,7 +18,9 @@ public class SortingTest {
     private static int[] input2;
     private static int[] input3;
     private static int[] input4;
-    private static int[] input5; 
+    private static int[] input5;
+    private static int[] input6;
+    private static int[] input7;
     
     @Before
     public void setUp() {
@@ -26,7 +28,9 @@ public class SortingTest {
         input2 = new int[]{-67, -5, -2, 0, 3, 3, 4, 5, 120};
         input3 = new int[]{120, 5, 4, 3, 3, 0, -2, -5, -67};
         input4 = new int[0];
-        input5 = new int[]{0};
+        input5 = null;
+        input6 = new int[]{0};
+        input7 = new int[]{1, -2};
     }
 
     /**
@@ -51,7 +55,18 @@ public class SortingTest {
         assertArrayEquals(expResult, instance.selectSort());
         
         expResult = new int[]{0};
-        instance = new Sorting(input5);
+        instance = new Sorting(input6);
+        assertArrayEquals(expResult, instance.selectSort());
+        
+        expResult = new int[]{-2, 1};
+        instance = new Sorting(input7);
+        assertArrayEquals(expResult, instance.selectSort());
+    }
+    
+    @Test(expected = NullPointerException.class)
+    public void nullTestSelectSort(){
+        int[] expResult = null;
+        Sorting instance = new Sorting(input5);
         assertArrayEquals(expResult, instance.selectSort());
     }
 
@@ -77,7 +92,18 @@ public class SortingTest {
         assertArrayEquals(expResult, instance.bubbleSort());
         
         expResult = new int[]{0};
-        instance = new Sorting(input5);
-        assertArrayEquals(expResult, instance.selectSort());
+        instance = new Sorting(input6);
+        assertArrayEquals(expResult, instance.bubbleSort());
+        
+        expResult = new int[]{-2, 1};
+        instance = new Sorting(input7);
+        assertArrayEquals(expResult, instance.bubbleSort());
+    }
+    
+    @Test(expected = NullPointerException.class)
+    public void nullTestBubbleSort(){
+        int[] expResult = null;
+        Sorting instance = new Sorting(input5);
+        assertArrayEquals(expResult, instance.bubbleSort());
     }
 }

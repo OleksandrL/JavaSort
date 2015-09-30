@@ -12,6 +12,7 @@ import java.util.Scanner;
  */
 public class SortingRunner {
     
+    private int[] numbersCopy;
     private Sorting randomSort;
     private Sorting inputSort;
     public static final int MAX_ARRAY_LENGTH = 30; 
@@ -23,13 +24,16 @@ public class SortingRunner {
     
     public void start(){
         randomSort = new Sorting();
+        numbersCopy = new int[randomSort.getNumbers().length];
+        System.arraycopy(randomSort.getNumbers(), 0, numbersCopy, 0, numbersCopy.length);
+        
         System.out.println("Before bubble sort: ");
         randomSort.output();
         randomSort.bubbleSort();
         System.out.println("After bubble sort: ");
         randomSort.output();
         
-        randomSort.restoreArray();
+        randomSort = new Sorting(numbersCopy); //restore random generated array
         System.out.println("Before selection sort: ");
         randomSort.output();
         randomSort.selectSort();
@@ -43,7 +47,8 @@ public class SortingRunner {
         inputSort.bubbleSort();
         System.out.println("After bubble sort: ");
         inputSort.output();
-        inputSort.restoreArray();
+        
+        inputSort = new Sorting(input);
         System.out.println("Before selection sort: ");
         inputSort.output();
         inputSort.selectSort();
@@ -66,13 +71,15 @@ public class SortingRunner {
             }
         }
         int[] input = new int[n];
-        System.out.println("Fill the array by integer values: ");
+        System.out.println("Fill the array by integer values:\n"
+                + "*(Press <Return> to input each value) ");
         for (int i = 0; i < n; i++){
             while(true){
             try {
-                input[i] = Integer.parseInt(sc.next());
+                input[i] = Integer.parseInt(sc.nextLine());
                 break;
             } catch (Exception e) {
+                System.out.println("Incorrect value: please enter an integer value");
             }
             }
         }

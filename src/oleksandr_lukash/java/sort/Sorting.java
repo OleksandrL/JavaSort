@@ -14,24 +14,19 @@ import java.util.Random;
 public class Sorting {
     
     private int [] numbers;
-    private int [] numbersCopy;
     public final static int ARRAY_SIZE = 20;
     
     public Sorting(){
         numbers = new int[ARRAY_SIZE];
-        numbersCopy = new int[numbers.length];
         Random rnd = new Random();
         for(int i = 0; i < numbers.length; i++){
             numbers[i] = rnd.nextInt();
         }
-        System.arraycopy(numbers, 0, numbersCopy, 0, numbers.length);
     }
     
     public Sorting(int [] input){
         numbers = new int[input.length];
-        numbersCopy = new int[numbers.length];
         System.arraycopy(input, 0, numbers, 0, input.length);
-        System.arraycopy(input, 0, numbersCopy, 0, input.length);
     }
     
     int[] selectSort(){
@@ -61,8 +56,8 @@ public class Sorting {
         return numbers;
     }
     
-    void restoreArray(){
-        System.arraycopy(numbersCopy, 0, numbers, 0, numbers.length);
+    int[] getNumbers(){
+        return numbers;
     }
     
     void output (){
