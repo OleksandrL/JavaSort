@@ -15,7 +15,7 @@ public class Sorting {
     
     private int [] numbers;
     private int [] numbersCopy;
-    public final static int ARRAY_SIZE = 10;
+    public final static int ARRAY_SIZE = 20;
     
     public Sorting(){
         numbers = new int[ARRAY_SIZE];

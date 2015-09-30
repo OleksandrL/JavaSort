@@ -22,9 +22,9 @@ public class SortingTest {
     
     @Before
     public void setUp() {
-        input = new int[]{23, 0, -5, 0, -8, 0, 25, 25};
-        input2 = new int[]{-5, -2, 0, 3, 3, 4, 5, 120};
-        input3 = new int[]{120, 5, 4, 3, 3, 0, -2, -5};
+        input = new int[]{23, 0, -5, 0, -8, 0, 25, 25, 2, 1};
+        input2 = new int[]{-67, -5, -2, 0, 3, 3, 4, 5, 120};
+        input3 = new int[]{120, 5, 4, 3, 3, 0, -2, -5, -67};
         input4 = new int[0];
         input5 = new int[]{0};
     }
@@ -34,15 +34,15 @@ public class SortingTest {
      */
     @Test
     public void testSelectSort() {
-        int[] expResult = new int[]{-8, -5, 0, 0, 0, 23, 25, 25};
+        int[] expResult = new int[]{-8, -5, 0, 0, 0, 1, 2, 23, 25, 25};
         Sorting instance = new Sorting(input);
         assertArrayEquals(expResult, instance.selectSort());
         
-        expResult = new int[]{-5, -2, 0, 3, 3, 4, 5, 120};
+        expResult = new int[]{-67, -5, -2, 0, 3, 3, 4, 5, 120};
         instance = new Sorting(input2);
         assertArrayEquals(expResult, instance.selectSort());
         
-        expResult = new int[]{-5, -2, 0, 3, 3, 4, 5, 120};
+        expResult = new int[]{-67, -5, -2, 0, 3, 3, 4, 5, 120};
         instance = new Sorting(input3);
         assertArrayEquals(expResult, instance.selectSort());
         
@@ -60,15 +60,15 @@ public class SortingTest {
      */
     @Test
     public void testBubbleSort() {
-        int[] expResult = new int[]{-8, -5, 0, 0, 0, 23, 25, 25};
+        int[] expResult = new int[]{-8, -5, 0, 0, 0, 1, 2, 23, 25, 25};
         Sorting instance = new Sorting(input);
         assertArrayEquals(expResult, instance.bubbleSort());
         
-        expResult = new int[]{-5, -2, 0, 3, 3, 4, 5, 120};
+        expResult = new int[]{-67, -5, -2, 0, 3, 3, 4, 5, 120};
         instance = new Sorting(input2);
         assertArrayEquals(expResult, instance.bubbleSort());
         
-        expResult = new int[]{-5, -2, 0, 3, 3, 4, 5, 120};
+        expResult = new int[]{-67, -5, -2, 0, 3, 3, 4, 5, 120};
         instance = new Sorting(input3);
         assertArrayEquals(expResult, instance.bubbleSort());
         

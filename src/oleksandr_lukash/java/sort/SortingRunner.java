@@ -12,8 +12,9 @@ import java.util.Scanner;
  */
 public class SortingRunner {
     
-    private Sorting sort1;
-    private Sorting sort2;
+    private Sorting randomSort;
+    private Sorting inputSort;
+    public static final int MAX_ARRAY_LENGTH = 30; 
     
     public static void main(String[]  args){
         SortingRunner srr = new SortingRunner();
@@ -21,47 +22,47 @@ public class SortingRunner {
     }
     
     public void start(){
-        sort1 = new Sorting();
+        randomSort = new Sorting();
         System.out.println("Before bubble sort: ");
-        sort1.output();
-        sort1.bubbleSort();
+        randomSort.output();
+        randomSort.bubbleSort();
         System.out.println("After bubble sort: ");
-        sort1.output();
+        randomSort.output();
         
-        sort1.restoreArray();
+        randomSort.restoreArray();
         System.out.println("Before selection sort: ");
-        sort1.output();
-        sort1.selectSort();
+        randomSort.output();
+        randomSort.selectSort();
         System.out.println("After selection sort: ");
-        sort1.output();
+        randomSort.output();
         
         int[] input = enterArray();
-        sort2 = new Sorting(input);
+        inputSort = new Sorting(input);
         System.out.println("Before bubble sort: ");
-        sort2.output();
-        sort2.bubbleSort();
+        inputSort.output();
+        inputSort.bubbleSort();
         System.out.println("After bubble sort: ");
-        sort2.output();
-        sort2.restoreArray();
+        inputSort.output();
+        inputSort.restoreArray();
         System.out.println("Before selection sort: ");
-        sort2.output();
-        sort2.selectSort();
+        inputSort.output();
+        inputSort.selectSort();
         System.out.println("After selection sort: ");
-        sort2.output();
+        inputSort.output();
     }
     
     int [] enterArray(){
         Scanner sc = new Scanner(System.in);
         int n = 0;
-        System.out.println("Enter an array size: ");
+        System.out.println("Enter an array size (n <= " + MAX_ARRAY_LENGTH + "): ");
         while(true){
             try {
                 n = Integer.parseInt(sc.nextLine());
-                if (n < 1)
+                if (n < 1 || n > MAX_ARRAY_LENGTH)
                     throw new Exception();
                 break;
             } catch (Exception e) {
-                System.out.println("Enter a proper size.");
+                System.out.println("Enter a proper array size.");
             }
         }
         int[] input = new int[n];
