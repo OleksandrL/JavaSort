@@ -108,7 +108,7 @@ public class SortingTest {
     }
 
     /**
-     * Test of bubbleSort method, of class Sorting.
+     * Test of ShellSort method, of class Sorting.
      */
     @Test
     public void testShellSort() {
