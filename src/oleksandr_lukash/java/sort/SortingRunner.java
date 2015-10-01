@@ -40,6 +40,13 @@ public class SortingRunner {
         System.out.println("After selection sort: ");
         randomSort.output();
         
+        randomSort = new Sorting(numbersCopy); //restore random generated array
+        System.out.println("Before Shell sort: ");
+        randomSort.output();
+        randomSort.ShellSort();
+        System.out.println("After Shell sort: ");
+        randomSort.output();
+        
         int[] input = enterArray();
         inputSort = new Sorting(input);
         System.out.println("Before bubble sort: ");
@@ -53,6 +60,13 @@ public class SortingRunner {
         inputSort.output();
         inputSort.selectSort();
         System.out.println("After selection sort: ");
+        inputSort.output();
+        
+        inputSort = new Sorting(input);
+        System.out.println("Before Shell sort: ");
+        inputSort.output();
+        inputSort.ShellSort();
+        System.out.println("After Shell sort: ");
         inputSort.output();
     }
     
@@ -72,7 +86,7 @@ public class SortingRunner {
         }
         int[] input = new int[n];
         System.out.println("Fill the array by integer values:\n"
-                + "*(Press <Return> to input each value) ");
+                + "***(Press <Return> to input each value) ");
         for (int i = 0; i < n; i++){
             while(true){
             try {

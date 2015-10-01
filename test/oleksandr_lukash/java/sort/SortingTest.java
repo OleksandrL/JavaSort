@@ -106,4 +106,41 @@ public class SortingTest {
         Sorting instance = new Sorting(input5);
         assertArrayEquals(expResult, instance.bubbleSort());
     }
+
+    /**
+     * Test of bubbleSort method, of class Sorting.
+     */
+    @Test
+    public void testShellSort() {
+        int[] expResult = new int[]{-8, -5, 0, 0, 0, 1, 2, 23, 25, 25};
+        Sorting instance = new Sorting(input);
+        assertArrayEquals(expResult, instance.ShellSort());
+        
+        expResult = new int[]{-67, -5, -2, 0, 3, 3, 4, 5, 120};
+        instance = new Sorting(input2);
+        assertArrayEquals(expResult, instance.ShellSort());
+        
+        expResult = new int[]{-67, -5, -2, 0, 3, 3, 4, 5, 120};
+        instance = new Sorting(input3);
+        assertArrayEquals(expResult, instance.ShellSort());
+        
+        expResult = new int[0];
+        instance = new Sorting(input4);
+        assertArrayEquals(expResult, instance.ShellSort());
+        
+        expResult = new int[]{0};
+        instance = new Sorting(input6);
+        assertArrayEquals(expResult, instance.ShellSort());
+        
+        expResult = new int[]{-2, 1};
+        instance = new Sorting(input7);
+        assertArrayEquals(expResult, instance.ShellSort());
+    }
+    
+    @Test(expected = NullPointerException.class)
+    public void nullTestShellSort(){
+        int[] expResult = null;
+        Sorting instance = new Sorting(input5);
+        assertArrayEquals(expResult, instance.ShellSort());
+    }
 }
